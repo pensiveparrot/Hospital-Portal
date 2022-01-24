@@ -21,7 +21,7 @@ public class UserService {
 			User user = new User();
 			user.setEmail(email);
 			user.setPassword(password);
-			user.setRoles(new HashSet<>(RoleRepository.findAll()));
+			user.setRole(user.getRole());
 			return UserRepository.save(user);
 		}
 	}

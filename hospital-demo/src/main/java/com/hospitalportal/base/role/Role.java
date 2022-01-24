@@ -15,15 +15,18 @@ public class Role {
     private Long id;
     @Column(name="roleName")
     private String name;
-
-    @ManyToMany(mappedBy = "roles")
-    private Set<User> users;
-
+    @Column(name="role_id")
+    private Integer role_id;
     public Long getId() {
         return id;
     }
-
-    public void setId(Long id) {
+    public Integer getRole_id() {
+		return role_id;
+	}
+	public void setRole_id(Integer role_id) {
+		this.role_id = role_id;
+	}
+	public void setId(Long id) {
         this.id = id;
     }
   
@@ -35,11 +38,4 @@ public class Role {
         this.name = name;
     }
 
-    public Set<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<User> users) {
-        this.users = users;
-    }
 }

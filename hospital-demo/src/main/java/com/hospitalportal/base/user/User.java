@@ -5,10 +5,13 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.hospitalportal.base.role.Role;
@@ -23,12 +26,12 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "Model [id=" + id + ", email=" + email + ", accountType=" + roles + "]";
+		return "Model [id=" + id + ", email=" + email + ", accountType=" + role + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(roles, email, id, password);
+		return Objects.hash(role, email, id, password);
 	}
 
 	@Override
@@ -40,7 +43,7 @@ public class User {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return Objects.equals(roles, other.roles) && Objects.equals(email, other.email) && Objects.equals(id, other.id)
+		return Objects.equals(role, other.role) && Objects.equals(email, other.email) && Objects.equals(id, other.id)
 				&& Objects.equals(password, other.password);
 	}
 
@@ -68,19 +71,21 @@ public class User {
 		this.password = password;
 	}
 
-	public Set<Role> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
-	}
 
 	@Column(name = "email")
 	private String email;
 	@Column(name = "password")
 	private String password;
-	@ManyToMany
-	private Set<Role> roles;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="role_id")
+	private Integer role;
+
+	public Integer getRole() {
+		return role;
+	}
+
+	public void setRole(Integer role) {
+		this.role = role;
+	}
 
 }
