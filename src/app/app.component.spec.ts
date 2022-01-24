@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'B2B-SM-Platform'`, () => {
+  it(`should have as title 'Hospital-Appointment-Platform'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('B2B-SM-Platform');
+    expect(app.title).toEqual('Hospital-Appointment-Platform');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('B2B-SM-Platform app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('Hospital-Appointment-Platform app is running!');
   });
 });
