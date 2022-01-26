@@ -1,15 +1,15 @@
 CREATE TABLE `hospital`.`upcoming_apts` (
-  `aptid` INT NOT NULL AUTO_INCREMENT,
+  `appt_id` INT NOT NULL AUTO_INCREMENT,
   `appt_name` VARCHAR(45) NOT NULL,
   `appt_type` VARCHAR(45) NOT NULL,
-  `patientid` INT NOT NULL,
+  `patient_id` INT NOT NULL,
   `appt_date` DATETIME NULL,
   `summary` VARCHAR(255) NULL,
   `confirmed` VARCHAR(45) NULL,
   PRIMARY KEY (`aptid`),
-  INDEX `patientid_idx` (`patientid` ASC) VISIBLE,
-  CONSTRAINT `patientid`
-    FOREIGN KEY (`patientid`)
-    REFERENCES `hospital`.`patient_details` (`patientid`)
+  INDEX `patient_id_idx` (`patientid` ASC) VISIBLE,
+  CONSTRAINT `patient_id`
+    FOREIGN KEY (`patient_id`)
+    REFERENCES `hospital`.`patient_details` (`patient_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
