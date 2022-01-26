@@ -1,0 +1,15 @@
+CREATE TABLE `hospital`.`patient_details` (
+  `patientid` INT NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `payment_method` VARCHAR(45) NULL,
+  `age` INT NOT NULL,
+  `height` VARCHAR(45) NOT NULL,
+  `weight` INT NOT NULL,
+  `bmi` VARCHAR(45) NOT NULL,
+  `prescriptions` VARCHAR(255) NULL,
+  `phone` VARCHAR(45) NOT NULL,
+  `emergency_contact` VARCHAR(45) NULL,
+  `insurance_provider` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`patientid`));
