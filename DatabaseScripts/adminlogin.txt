@@ -1,0 +1,10 @@
+Admin login table
+CREATE TABLE `hospital`.`admin_login` (
+  `employeeID` INT NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`employeeID`),
+  CONSTRAINT `employeeID`
+    FOREIGN KEY (`employeeID`)
+    REFERENCES `hospital`.`employee_details` (`employeeid`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
