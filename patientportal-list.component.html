@@ -1,0 +1,26 @@
+<div class = "row">
+    <h2> Patient Portal List</h2>
+</div>
+
+<table class = "table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th> Appointment Type </th>
+            <th> Appointment Time </th>
+            <th> Summary</th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let patientportal of patientportals" >
+            <td> {{ patientportal.appointmentType }} </td>
+            <td> {{ patientportal.appointmentTime }} </td>
+            <td> {{ patientportal.summary }} </td>
+            <td>
+                <button (click) = "updatePatientPortal(patientportal.id)" class = "btn btn-primary"> Update</button>
+                <button (click) = "deletePatientPortal(patientportal.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <button (click) = "patientPortalDetails(patientportal.id)" class = "btn btn-primary" style="margin-left: 10px"> View</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

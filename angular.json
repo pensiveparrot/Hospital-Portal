@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "B2B-SM-Platform": {
+    "hospital-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/b2-b-sm-platform",
+            "outputPath": "dist/hospital-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "B2B-SM-Platform:build:production"
+              "browserTarget": "hospital-frontend:build:production"
             },
             "development": {
-              "browserTarget": "B2B-SM-Platform:build:development"
+              "browserTarget": "hospital-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "B2B-SM-Platform:build"
+            "browserTarget": "hospital-frontend:build"
           }
         },
         "test": {
@@ -94,13 +94,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           }
         }
       }
     }
   },
-  "defaultProject": "B2B-SM-Platform"
+  "defaultProject": "hospital-frontend"
 }

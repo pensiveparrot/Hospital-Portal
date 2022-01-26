@@ -1,5 +1,27 @@
-# B2BSMPlatform
+# HospitalFrontend
 
-## Team collaborators: Dillon, Sarah, Lisa, Shawn, Matthew, Jordan
-B2B SM Platform is a business to business social media platform where users are allowed to give feedback to a certain company as a guest, manage reviews to delete or remove as a review manager or keep/provide/maintain data integrity as a web admin.  The company in question receiving reviews is a inventory/shipment business that needs feedback from customers.  These customers are businesses that supply a product to a city which needs said company's inventory/shipment(think like a restaurant needing tableware or kitchenware). <br>
-### reviews that critique or praise cost,shipment time, inventory quality are of most importance.  
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
