@@ -16,8 +16,8 @@ public class PatientService {
 		this.patientRepository = patientRepository;
 	}
 
-	public Patient login(String id, String password) {
-		return (patientRepository.findByLoginAndPassword(id, password).orElse(null));
+	public Patient login(int id, String password) {
+		return (patientRepository.findByLoginAndPassword(Integer.toString(id), password).orElse(null));
 
 	}
 }

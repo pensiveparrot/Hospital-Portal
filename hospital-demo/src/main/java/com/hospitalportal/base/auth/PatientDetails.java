@@ -10,6 +10,33 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "patient_details")
 public class PatientDetails {
+	
+	
+	public PatientDetails(int id, String firstName, String lastName, String email, String paymentMethod,
+			String insuranceProvider, int age, char gender, String height, int weight, String bmi,
+			String medicalConditions, String phone, String emergencyContact) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.paymentMethod = paymentMethod;
+		this.insuranceProvider = insuranceProvider;
+		this.age = age;
+		this.gender = gender;
+		this.height = height;
+		this.weight = weight;
+		this.bmi = bmi;
+		this.medicalConditions = medicalConditions;
+		this.phone = phone;
+		this.emergencyContact = emergencyContact;
+	}
+
+	public PatientDetails() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getId() {
 		return id;
 	}

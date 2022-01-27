@@ -11,6 +11,19 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "patient_login")
 public class Patient {
+	
+	
+	public Patient(int patientId, String password) {
+		super();
+		this.patientId = patientId;
+		this.password = password;
+	}
+
+	public Patient() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getPatientId() {
 		return patientId;
 	}

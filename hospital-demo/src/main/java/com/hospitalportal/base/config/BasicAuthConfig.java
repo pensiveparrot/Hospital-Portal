@@ -1,4 +1,4 @@
-package com.hospitalportal.base;
+package com.hospitalportal.base.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

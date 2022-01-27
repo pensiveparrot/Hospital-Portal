@@ -10,6 +10,42 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "employee_details")
 public class EmployeeDetails {
+
+	public EmployeeDetails(int id, String firstName, String lastName, String password, String email, String phone) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.password = password;
+		this.email = email;
+		this.phone = phone;
+	}
+
+	public EmployeeDetails() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "employee_id")
+	private int id;
+
+	@Column(name = "first_name")
+	private String firstName;
+
+	@Column(name = "last_name")
+	private String lastName;
+
+	@Column(name = "password")
+	private String password;
+
+	@Column(name = "email")
+	private String email;
+
+	@Column(name = "phone")
+	private String phone;
+
 	public int getId() {
 		return id;
 	}
@@ -58,23 +94,4 @@ public class EmployeeDetails {
 		this.phone = phone;
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "employee_id")
-	private int id;
-
-	@Column(name = "first_name")
-	private String firstName;
-
-	@Column(name = "last_name")
-	private String lastName;
-
-	@Column(name = "password")
-	private String password;
-
-	@Column(name = "email")
-	private String email;
-
-	@Column(name = "phone")
-	private String phone;
 }
