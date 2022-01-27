@@ -1,9 +1,9 @@
 Admin login table
 CREATE TABLE `hospital`.`admin_login` (
-  `employee_id` INT NOT NULL,
+  `admin_id` INT NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`employee_id`),
-  CONSTRAINT `employeeID`
+  CONSTRAINT `employee_id`
     FOREIGN KEY (`employeeID`)
     REFERENCES `hospital`.`employee_details` (`employee_id`)
     ON DELETE NO ACTION

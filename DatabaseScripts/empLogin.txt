@@ -1,4 +1,4 @@
-CREATE TABLE `hospital`.`employeelogin` (
+CREATE TABLE `hospital`.`employee_login` (
   `employee_id` INT NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`empID`),
