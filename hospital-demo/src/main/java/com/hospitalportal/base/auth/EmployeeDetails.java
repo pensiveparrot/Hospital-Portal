@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="employee_details")
+@Table(name = "employee_details")
 public class EmployeeDetails {
 	public int getId() {
 		return id;
@@ -60,21 +60,21 @@ public class EmployeeDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="employee_details_id")
+	@Column(name = "employee_id")
 	private int id;
-	
-	@Column(name="first_name")
+
+	@Column(name = "first_name")
 	private String firstName;
-	
-	@Column(name="last_name")
+
+	@Column(name = "last_name")
 	private String lastName;
-	
-	@Column(name="password")
+
+	@Column(name = "password")
 	private String password;
-	
-	@Column(name="email")
+
+	@Column(name = "email")
 	private String email;
-	
-	@Column(name="phone")
+
+	@Column(name = "phone")
 	private String phone;
 }

@@ -9,14 +9,15 @@ import com.hospitalportal.base.repository.AdminRepository;
 @Service
 public class AdminService {
 
-@Autowired
-private AdminRepository adminRepository;
-		public AdminService(AdminRepository adminRepository) {
-			this.adminRepository=adminRepository;
-		}
-		public Admin login(String id, String password)
-		{
-				return(adminRepository.findByLoginAndPassword(id, password).orElse(null));
-			
-		}
+	@Autowired
+	private AdminRepository adminRepository;
+
+	public AdminService(AdminRepository adminRepository) {
+		this.adminRepository = adminRepository;
+	}
+
+	public Admin login(String id, String password) {
+		return (adminRepository.findByLoginAndPassword(id, password).orElse(null));
+
+	}
 }

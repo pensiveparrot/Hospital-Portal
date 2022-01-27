@@ -1,3 +1,33 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@pensiveparrot 
+pensiveparrot
+/
+Hospital-Project
+Private
+Code
+Issues
+Pull requests
+1
+Actions
+Projects
+1
+Security
+Insights
+Settings
+Hospital-Project/.gitignore
+@pensiveparrot
+pensiveparrot Update .gitignore
+Latest commit 19581c6 6 days ago
+ History
+ 1 contributor
+148 lines (117 sloc)  2.14 KB
+   
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # Compiled output
@@ -146,3 +176,16 @@ local.properties
 ######################
 /log/**
 /target/**
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete

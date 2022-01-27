@@ -6,10 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 @Entity
-@Table(name="patient_login")
+@Table(name = "patient_login")
 public class Patient {
 	public int getId() {
 		return id;
@@ -39,11 +41,11 @@ public class Patient {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "patient_id")
 	private int id;
-	
-	@Column(name="password")
+
+	@Column(name = "password")
 	private String password;
-	
-	@OneToMany
-	@JoinColumn(name="patient_id")
+
+	@Id
+	@JoinColumn(name = "patient_id", nullable = false)
 	private PatientDetails patientDetails;
 }
