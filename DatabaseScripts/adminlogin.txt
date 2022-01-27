@@ -4,7 +4,7 @@ CREATE TABLE `hospital`.`admin_login` (
   `password` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`employee_id`),
   CONSTRAINT `employee_id`
-    FOREIGN KEY (`employeeID`)
+    FOREIGN KEY (`employee_id`)
     REFERENCES `hospital`.`employee_details` (`employee_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);

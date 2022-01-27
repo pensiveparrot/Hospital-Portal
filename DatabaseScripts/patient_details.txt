@@ -12,4 +12,4 @@ CREATE TABLE `hospital`.`patient_details` (
   `phone` VARCHAR(45) NOT NULL,
   `emergency_contact` VARCHAR(45) NULL,
   `insurance_provider` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`patientid`));
+  PRIMARY KEY (`patient_id`));
