@@ -1,13 +1,13 @@
 CREATE TABLE `hospital`.`upcoming_apts` (
-  `appt_id` INT NOT NULL AUTO_INCREMENT,
+  `apt_id` INT NOT NULL AUTO_INCREMENT,
   `appt_name` VARCHAR(45) NOT NULL,
   `appt_type` VARCHAR(45) NOT NULL,
   `patient_id` INT NOT NULL,
   `appt_date` DATETIME NULL,
   `summary` VARCHAR(255) NULL,
   `confirmed` VARCHAR(45) NULL,
-  PRIMARY KEY (`aptid`),
-  INDEX `patient_id_idx` (`patientid` ASC) VISIBLE,
+  PRIMARY KEY (`apt_id`),
+  INDEX `patientid_idx` (`patient_id` ASC) VISIBLE,
   CONSTRAINT `patient_id`
     FOREIGN KEY (`patient_id`)
     REFERENCES `hospital`.`patient_details` (`patient_id`)

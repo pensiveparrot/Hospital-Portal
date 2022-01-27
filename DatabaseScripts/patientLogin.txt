@@ -1,0 +1,9 @@
+CREATE TABLE `hospital`.`patientlogin` (
+  `patientid` INT NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`patientid`),
+  CONSTRAINT `pidReference`
+    FOREIGN KEY (`patientid`)
+    REFERENCES `hospital`.`patient_details` (`patientid`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);

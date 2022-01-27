@@ -3,8 +3,8 @@ CREATE TABLE `hospital`.`admin_login` (
   `employee_id` INT NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`employee_id`),
-  CONSTRAINT `employee_id`
-    FOREIGN KEY (`employee_id`)
+  CONSTRAINT `employeeID`
+    FOREIGN KEY (`employeeID`)
     REFERENCES `hospital`.`employee_details` (`employee_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);

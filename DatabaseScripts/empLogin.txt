@@ -1,9 +1,9 @@
 CREATE TABLE `hospital`.`employeelogin` (
-  `employee_id` INT NOT NULL,
+  `empID` INT NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`employee_id`),
+  PRIMARY KEY (`empID`),
   CONSTRAINT `employeeidLogin`
-    FOREIGN KEY (`employee_id`)
-    REFERENCES `hospital`.`employee_details` (`employee_id`)
+    FOREIGN KEY (`empID`)
+    REFERENCES `hospital`.`employee_details` (`employeeid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
