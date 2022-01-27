@@ -1,5 +1,5 @@
 CREATE TABLE `hospital`.`upcoming_apts` (
-  `apt_id` INT NOT NULL AUTO_INCREMENT,
+  `appt_id` INT NOT NULL AUTO_INCREMENT,
   `appt_name` VARCHAR(45) NOT NULL,
   `appt_type` VARCHAR(45) NOT NULL,
   `patient_id` INT NOT NULL,
