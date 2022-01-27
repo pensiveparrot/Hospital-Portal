@@ -16,51 +16,28 @@ import javax.persistence.Table;
 @Table(name = "employee_login")
 public class Employee {
 
-
-	public int getId() {
-		return id;
+	public int getEmployeeId() {
+		return employeeId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
 	}
 
-	public Patient getPatientId() {
-		return patientId;
-	}
-
-	public void setPatientId(Patient patientId) {
-		this.patientId = patientId;
-	}
-
-	public EmployeeDetails getPassword() {
+	public String getPassword() {
 		return password;
 	}
 
-	public void setPassword(EmployeeDetails password) {
+	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public EmployeeDetails getEmployeeDetails() {
-		return employeeDetails;
-	}
-
-	public void setEmployeeDetails(EmployeeDetails employeeDetails) {
-		this.employeeDetails = employeeDetails;
 	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="employee_id")
-	private int id;
+	private int employeeId;
 	
-	@ManyToOne
-	@JoinColumn(name = "patient_id", nullable = false)
-		private Patient patientId;
-	@JoinColumn(name = "password")
-	private EmployeeDetails password;
+	@Column(name="password")
+	private String password;
 
-	@Id
-	@JoinColumn(name = "employee_details_id")
-	private EmployeeDetails employeeDetails;
 }

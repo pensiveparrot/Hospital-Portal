@@ -16,7 +16,7 @@ public class AdminService {
 		this.adminRepository = adminRepository;
 	}
 
-	public Admin login(String id, String password) {
+	public Admin login(int id, String password) {
 		return (adminRepository.findByLoginAndPassword(id, password).orElse(null));
 
 	}

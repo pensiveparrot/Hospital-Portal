@@ -21,8 +21,8 @@ public class LoginController {
 	@RequestMapping("/login")
 	public boolean login(@RequestBody Admin admin, @RequestBody Patient patient, @RequestBody Employee employee) {
 		return ((admin.getId()>0&& admin.getPassword().equals("password"))
-				|| (patient.getId() > 0 && patient.getPassword().equals("password"))
-				|| (employee.getId()>0 && employee.getPassword().equals("password")));
+				|| (patient.getPatientId() > 0 && patient.getPassword().equals("password"))
+				|| (employee.getEmployeeId()>0 && employee.getPassword().equals("password")));
 	}
 
 	@RequestMapping("/id")

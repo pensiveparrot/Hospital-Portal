@@ -20,10 +20,10 @@ public class Admin {
 	public void setId(int id) {
 		Id = id;
 	}
-	public Employee getEmployeeId() {
+	public int getEmployeeId() {
 		return employeeId;
 	}
-	public void setEmployeeId(Employee employeeId) {
+	public void setEmployeeId(int employeeId) {
 		this.employeeId = employeeId;
 	}
 	public String getPassword() {
@@ -34,14 +34,13 @@ public class Admin {
 	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="employee_id")
+	@Column(name="admin_id")
 		private int Id;
 
 
 
-	@ManyToOne
-	@JoinColumn(name = "employee_id", nullable = false)
-	private Employee employeeId;
+	@Column(name="employee_id", insertable=false, updatable=false)
+	private int employeeId;
 	@Column(name = "password")
 	private String password;
 
