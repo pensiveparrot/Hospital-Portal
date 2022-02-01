@@ -47,9 +47,9 @@ public Admin createEmployee(@Valid @RequestBody Admin admin) {
 }
 public ResponseEntity<Admin> updateAdmin(@PathVariable(value = "id") int adminID,
         @Valid @RequestBody Admin adminDetails) throws ResourceNotFoundException {
-       Admin admin = adminReop.findById(adminID);
+       Admin admin = adminRepo.findById(adminID);
       admin.setId(admin.getId());
-      admin.setEmployeeId(admin.getEmployeeId());
+      admin.setPassword(admin.getPassword());
        final Admin updatedAdmin = adminRepo.save(admin);
        return ResponseEntity.ok(updatedAdmin);
    }
