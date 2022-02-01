@@ -13,12 +13,23 @@ public class Employee {
 	
 	
 	
-	public Employee(int employeeId, String password) {
+
+public Employee(String login, int employeeId, String password) {
 		super();
+		this.login = login;
 		this.employeeId = employeeId;
 		this.password = password;
 	}
 
+public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+private String login;
 	public Employee() {
 		super();
 		// TODO Auto-generated constructor stub

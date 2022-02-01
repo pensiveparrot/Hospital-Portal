@@ -13,12 +13,23 @@ import javax.persistence.Table;
 public class Patient {
 	
 	
-	public Patient(int patientId, String password) {
+
+public Patient(String login, int patientId, String password) {
 		super();
+		this.login = login;
 		this.patientId = patientId;
 		this.password = password;
 	}
 
+public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+private String login;
 	public Patient() {
 		super();
 		// TODO Auto-generated constructor stub

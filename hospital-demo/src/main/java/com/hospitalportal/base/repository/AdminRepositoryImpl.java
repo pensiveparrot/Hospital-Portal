@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.hospitalportal.base.auth.Admin;
 
-public interface AdminRepository extends JpaRepository<Admin, Integer> {
+public interface AdminRepositoryImpl extends JpaRepository<Admin, Integer> {
 
 	Optional<Admin> findByLoginAndPassword(String id, String password);
 }

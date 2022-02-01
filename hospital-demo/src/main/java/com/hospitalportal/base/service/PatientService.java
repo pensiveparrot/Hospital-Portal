@@ -4,15 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hospitalportal.base.auth.Patient;
-import com.hospitalportal.base.repository.PatientRepository;
+import com.hospitalportal.base.repository.PatientRepositoryImpl;
 
 @Service
 public class PatientService {
 
 	@Autowired
-	private PatientRepository patientRepository;
+	private PatientRepositoryImpl patientRepository;
 
-	public PatientService(PatientRepository patientRepository) {
+	public PatientService(PatientRepositoryImpl patientRepository) {
 		this.patientRepository = patientRepository;
 	}
 

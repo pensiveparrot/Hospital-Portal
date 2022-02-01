@@ -6,8 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.hospitalportal.base.auth.Patient;
 
-public interface PatientRepository extends JpaRepository<Patient, Integer> {
-	Patient findById(String Id);
-
+public interface PatientRepositoryImpl extends JpaRepository<Patient, Integer> {
 	Optional<Patient> findByLoginAndPassword(String id, String password);
 }

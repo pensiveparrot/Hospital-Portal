@@ -10,7 +10,17 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "admin_login")
 public class Admin {
-
+	public Admin(int id, int employeeId, String password, String login) {
+		super();
+		Id = id;
+		this.employeeId = employeeId;
+		this.password = password;
+		this.login = login;
+	}
+	public Admin() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "admin_id")
@@ -21,17 +31,8 @@ public class Admin {
 	@Column(name = "password")
 	private String password;
 
-	public Admin(int id, int employeeId, String password) {
-		super();
-		Id = id;
-		this.employeeId = employeeId;
-		this.password = password;
-	}
 
-	public Admin() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+
 
 	public int getId() {
 		return Id;
@@ -56,5 +57,14 @@ public class Admin {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	private String login;
 
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
 }
