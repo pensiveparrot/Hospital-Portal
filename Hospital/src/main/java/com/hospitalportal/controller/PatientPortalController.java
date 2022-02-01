@@ -48,6 +48,8 @@ public class PatientPortalController {
 	public ResponseEntity<PatientPortal> updatepatientPortal(@PathVariable Long id, @RequestBody PatientPortal portalDetails){
 		PatientPortal patientportal = patientPortalRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException("Id not found"));
 		patientportal.setAppointmentTime(portalDetails.getAppointmentTime());
+    patientportal.setFirst_name(portalDetails.getFirst_name());
+		patientportal.setLast_name(portalDetails.getLast_name());
 		patientportal.setAppointmentType(portalDetails.getAppointmentType());
 		patientportal.setSummary(portalDetails.getSummary());
 		
