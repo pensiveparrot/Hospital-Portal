@@ -25,11 +25,11 @@ export class SchedulerportalComponent implements OnInit , OnDestroy{
   constructor( service:SchedulerService ) { }
 
   apptForm=new FormGroup({
-    id:new FormControl('', Validators.nullValidator &&Validators.required),
-    apptName:new FormControl('',Validators.nullValidator &&Validators.required),
-    paitentID:new FormControl('',Validators.nullValidator &&Validators.required),
-    apptDate:new FormControl('',Validators.nullValidator && Validators.required),
-    summary:new FormControl('',Validators.nullValidator&& Validators.required ) 
+    id:new FormControl('',Validators.required),
+    apptName:new FormControl('',Validators.required),
+    paitentID:new FormControl('',Validators.required),
+    apptDate:new FormControl('', Validators.required),
+    summary:new FormControl('', Validators.required ) 
 
   });
   appts:any[]=[];
@@ -40,6 +40,7 @@ export class SchedulerportalComponent implements OnInit , OnDestroy{
     this.service.addAppointment(this.apptForm,this.apptsCount+1).pipe(takeUntil this.destroy$)).subscribe(data=>{
       this.apptsCount=this.apptsCount+1;
       this.apptForm.reset();
+      
     })
   }
   getAllAppts()
