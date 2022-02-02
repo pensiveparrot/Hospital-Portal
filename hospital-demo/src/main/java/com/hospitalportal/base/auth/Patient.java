@@ -1,17 +1,25 @@
 package com.hospitalportal.base.auth;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.hospitalportal.postapptsummary.Appointments;
 
 @Entity
 @Table(name = "patient_login")
 public class Patient {
+
 
 
 
@@ -23,13 +31,7 @@ public class Patient {
 		this.password = password;
 	}
 
-	public Employee getmPatient() {
-		return mPatient;
-	}
 
-	public void setmPatient(Employee mPatient) {
-		this.mPatient = mPatient;
-	}
 
 	public Patient() {
 		super();
@@ -51,7 +53,13 @@ public class Patient {
     @ManyToOne(fetch = FetchType.LAZY)
     private Employee mPatient;
 
-    
+    @JsonIgnore
+    @OneToMany(
+            mappedBy = "mAppointments",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+        )
+    private List<Appointments> appointmentsId= new ArrayList<>();
     
 	@Override
 	public String toString() {
@@ -81,4 +89,25 @@ public class Patient {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public Employee getmPatient() {
+		return mPatient;
+	}
+
+	public void setmPatient(Employee mPatient) {
+		this.mPatient = mPatient;
+	}
+
+
+
+	public List<Appointments> getPatientAppointmentsId() {
+		return appointmentsId;
+	}
+
+
+
+	public void setPatientAppointmentsId(List<Appointments> patientAppointmentsId) {
+		this.appointmentsId = patientAppointmentsId;
+	}
+	
 }

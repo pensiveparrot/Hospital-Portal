@@ -2,16 +2,22 @@ package com.hospitalportal.postapptsummary;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.hospitalportal.base.auth.Patient;
+
 @Entity
-@Table(name = "upcoming_apts") 
+@Table(name = "appointments") 
 public class Appointments {
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,9 +41,14 @@ public class Appointments {
 	
 	@Column(name = "confirmed")
 	private String confirmed;
-		
+	
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Patient mAppointments;
+
+
 	public Appointments(int apptId, String apptName, String apptType, int patientId, DateTimeFormat apptDate,
-			String summary, String confirmed) {
+			String summary, String confirmed, Patient mPatientAppointment) {
 		super();
 		this.apptId = apptId;
 		this.apptName = apptName;
@@ -46,7 +57,24 @@ public class Appointments {
 		this.apptDate = apptDate;
 		this.summary = summary;
 		this.confirmed = confirmed;
+		this.mAppointments = mPatientAppointment;
 	}
+	
+
+	public Appointments() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Patient getmPatientAppointment() {
+		return mAppointments;
+	}
+
+
+	public void setmPatientAppointment(Patient mPatientAppointment) {
+		this.mAppointments = mPatientAppointment;
+	}
+
 
 	public int getApptId() {
 		return apptId;
@@ -104,7 +132,7 @@ public class Appointments {
 		this.confirmed = confirmed;
 	}
 
-	
+
 }
 
 /*
