@@ -2,20 +2,73 @@ package com.hospitalportal.base.auth;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
-@Table(name="employee_details")
+@Table(name = "employee_details")
 public class EmployeeDetails {
-	public int getId() {
-		return id;
+
+
+
+
+	public EmployeeDetails(String employeedetailsid, String firstName, String lastName, String email, String phone,
+			Employee employee) {
+		super();
+		this.employeeDetailsId = employeedetailsid;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phone = phone;
+		this.employee = employee;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public EmployeeDetails() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Id
+	@Column(name=("employeedetailsid"))
+	private String employeeDetailsId;
+
+	
+	@Column(name = "first_name")
+	private String firstName;
+
+	@Column(name = "last_name")
+	private String lastName;
+
+	@Column(name = "email")
+	private String email;
+
+	@Column(name = "phone")
+	private String phone;
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+	@OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "employeeId")
+	private Employee employee;
+    
+    
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
+	public String getId() {
+		return employeeDetailsId;
+	}
+
+	public void setId(String employeedetailsid) {
+		this.employeeDetailsId = employeedetailsid;
 	}
 
 	public String getFirstName() {
@@ -34,13 +87,7 @@ public class EmployeeDetails {
 		this.lastName = lastName;
 	}
 
-	public String getPassword() {
-		return password;
-	}
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
 
 	public String getEmail() {
 		return email;
@@ -58,23 +105,4 @@ public class EmployeeDetails {
 		this.phone = phone;
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="employee_details_id")
-	private int id;
-	
-	@Column(name="first_name")
-	private String firstName;
-	
-	@Column(name="last_name")
-	private String lastName;
-	
-	@Column(name="password")
-	private String password;
-	
-	@Column(name="email")
-	private String email;
-	
-	@Column(name="phone")
-	private String phone;
 }

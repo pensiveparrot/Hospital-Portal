@@ -2,21 +2,76 @@ package com.hospitalportal.base.auth;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
-@Table(name="patient_login")
+@Table(name = "patient_login")
 public class Patient {
-	public int getId() {
-		return id;
+
+
+
+
+
+	public Patient(String patientId, String password) {
+		super();
+		this.patientId = patientId;
+		this.password = password;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public Employee getmPatient() {
+		return mPatient;
+	}
+
+	public void setmPatient(Employee mPatient) {
+		this.mPatient = mPatient;
+	}
+
+	public Patient() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	
+//	@OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "patient_details_id", referencedColumnName = "id")
+//	private PatientDetails patientDetailsId;
+
+	@Id
+	@Column(name="patientId")
+	private String patientId;
+	@Column(name = "password")
+	private String password;
+
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Employee mPatient;
+
+    
+    
+	@Override
+	public String toString() {
+		return "Patient [patientId=" + patientId + ", password=" + password + "]";
+	}
+
+	public Employee getEmployee() {
+		return mPatient;
+	}
+
+	public void setEmployee(Employee mPatient) {
+		this.mPatient = mPatient;
+	}
+
+	public String getPatientId() {
+		return patientId;
+	}
+
+	public void setPatientId(String patientId) {
+		this.patientId = patientId;
 	}
 
 	public String getPassword() {
@@ -26,24 +81,4 @@ public class Patient {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public PatientDetails getPatientDetails() {
-		return patientDetails;
-	}
-
-	public void setPatientDetails(PatientDetails patientDetails) {
-		this.patientDetails = patientDetails;
-	}
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "patient_id")
-	private int id;
-	
-	@Column(name="password")
-	private String password;
-	
-	@OneToMany
-	@JoinColumn(name="patient_id")
-	private PatientDetails patientDetails;
 }
