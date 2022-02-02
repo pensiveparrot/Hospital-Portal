@@ -46,8 +46,19 @@ httpOptions={headers:new HttpHeaders({
     );
     
   }
+  delete(id:number){
 
-errorHandler(error) {
+    return this.httpClient.delete<Post>(this.rootURL + '/appointment/' + id, this.httpOptions)
+
+    .pipe(
+
+      catchError(this.errorHandler)
+
+    )
+
+  }
+
+errorHandler(error: { error: { message: string; }; status: any; message: any; }) {
 
   let errorMessage = '';
 

@@ -1,0 +1,61 @@
+<div class="container">
+
+    <h1>Scheduler Portal</h1>
+
+  
+
+    <a href="#" routerLink="/appointment/create/" class="btn btn-success">Create New Post</a>
+
+    
+
+    <table class="table table-bordered">
+
+      <tr>
+
+        <th>ID</th>
+
+        <th>Title</th>
+
+        <th>appointment type</th>
+        <th>paitentID</th>
+        <th>appointment date</th>
+        <th>summary</th>
+        <th>confirmed</th>
+<!--id:number;
+  apptName:string;
+  apptType:string;
+  paitentID:number;
+  apptDate:Date;
+  summary:string;
+  confirmed:string;-->
+        <th width="220px">Action</th>
+
+      </tr>
+
+      <tr *ngFor="let post of posts">
+
+        <td>{{ post.id }}</td>
+
+        <td>{{ post.apptName }}</td>
+
+        <td>{{ post.apptType }}</td>
+        <td>{{ post.paitentID}}</td>
+            <td>{{post.apptDate}}</td>
+                <td>{{post.summary}}</td>
+                    <td>{{post.confirmed}}</td>
+
+        <td>
+
+          <a href="#" [routerLink]="['/post/', post.id, 'view']" class="btn btn-info">View</a>
+
+          <a href="#" [routerLink]="['/post/', post.id, 'edit']" class="btn btn-primary">Edit</a>
+
+          <button type="button" (click)="deletePost(post.id)" class="btn btn-danger">Delete</button>
+
+        </td>
+
+      </tr>
+
+    </table>
+
+ </div>
