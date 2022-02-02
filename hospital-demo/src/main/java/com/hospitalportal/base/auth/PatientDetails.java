@@ -3,18 +3,13 @@ package com.hospitalportal.base.auth;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "patient_details")
@@ -75,7 +70,7 @@ public class PatientDetails {
 	private String phone;
 	@Column(name = "emergency_contact")
 	private String emergencyContact;
-
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 	   @OneToOne(fetch = FetchType.LAZY)
 	    @JoinColumn(name = "patientId")
 	   private Patient patient;

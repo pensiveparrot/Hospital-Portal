@@ -3,18 +3,12 @@ package com.hospitalportal.base.auth;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "employee_details")
@@ -55,7 +49,7 @@ public class EmployeeDetails {
 
 	@Column(name = "phone")
 	private String phone;
-
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 	@OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employeeId")
 	private Employee employee;

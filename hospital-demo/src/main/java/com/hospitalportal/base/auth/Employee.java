@@ -7,37 +7,44 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 
 @Entity
 @Table(name = "employee_login")
-
 public class Employee {
 
 
 
 
-	public Employee(String employeeId, String password, List<Patient> patientId, Admin mAdmin) {
+
+
+
+	public Employee(String employeeId, String password) {
 		super();
 		this.employeeId = employeeId;
 		this.password = password;
-		this.patientId = patientId;
+	}
+
+
+
+	public Admin getmAdmin() {
+		return mAdmin;
+	}
+
+
+
+	public void setmAdmin(Admin mAdmin) {
 		this.mAdmin = mAdmin;
 	}
+
 
 
 	public Employee() {
@@ -47,14 +54,23 @@ public class Employee {
 
 
 
-	@Id
-	@Column(name="employeeId")
-	private String employeeId;
+	
+
 
 	@Override
 	public String toString() {
 		return "Employee [employeeId=" + employeeId + ", password=" + password + "]";
 	}
+
+
+
+
+
+
+	@Id
+	@Column(name="employeeId")
+	private String employeeId;
+
 
 
 
@@ -66,6 +82,7 @@ public class Employee {
 //    @OneToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "employee_details_id", referencedColumnName = "id")
 //    private EmployeeDetails employeeDetailsId;
+	@JsonIgnore
     @OneToMany(
             mappedBy = "mPatient",
             cascade = CascadeType.ALL,
@@ -73,6 +90,7 @@ public class Employee {
         )
 	private List<Patient> patientId = new ArrayList<>();
 
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
     @ManyToOne(fetch = FetchType.LAZY)
     private Admin mAdmin;
     
