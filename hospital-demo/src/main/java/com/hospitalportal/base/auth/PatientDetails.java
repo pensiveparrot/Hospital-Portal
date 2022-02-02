@@ -2,19 +2,27 @@ package com.hospitalportal.base.auth;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "patient_details")
 public class PatientDetails {
-	
-	
-	public PatientDetails(int id, String firstName, String lastName, String email, String paymentMethod,
+
+	public PatientDetails(String id, String firstName, String lastName, String email, String paymentMethod,
 			String insuranceProvider, int age, char gender, String height, int weight, String bmi,
-			String medicalConditions, String phone, String emergencyContact) {
+			String medicalConditions, String phone, String emergencyContact, Patient patient) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -30,6 +38,7 @@ public class PatientDetails {
 		this.medicalConditions = medicalConditions;
 		this.phone = phone;
 		this.emergencyContact = emergencyContact;
+		this.patient = patient;
 	}
 
 	public PatientDetails() {
@@ -37,11 +46,53 @@ public class PatientDetails {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getId() {
+	@Id
+	@Column(name = "patient_details_id")
+	private String id;
+	@Column(name = "first_name")
+	private String firstName;
+	@Column(name = "last_name")
+	private String lastName;
+	@Column(name = "email")
+	private String email;
+	@Column(name = "payment_method")
+	private String paymentMethod;
+	@Column(name = "insurance_provider")
+	private String insuranceProvider;
+	@Column(name = "age")
+	private int age;
+	@Column(name = "gender")
+	private char gender;
+	@Column(name = "height")
+	private String height;
+	@Column(name = "weight")
+	private int weight;
+	@Column(name = "bmi")
+	private String bmi;
+	@Column(name = "medical_conditions")
+	private String medicalConditions;
+	@Column(name = "phone")
+	private String phone;
+	@Column(name = "emergency_contact")
+	private String emergencyContact;
+
+	   @OneToOne(fetch = FetchType.LAZY)
+	    @JoinColumn(name = "patientId")
+	   private Patient patient;
+
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -149,35 +200,4 @@ public class PatientDetails {
 		this.emergencyContact = emergencyContact;
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "patient_id")
-	private int id;
-
-	@Column(name = "first_name")
-	private String firstName;
-	@Column(name = "last_name")
-	private String lastName;
-	@Column(name = "email")
-	private String email;
-	@Column(name = "payment_method")
-	private String paymentMethod;
-	@Column(name = "insurance_provider")
-	private String insuranceProvider;
-	@Column(name = "age")
-	private int age;
-	@Column(name = "gender")
-	private char gender;
-	@Column(name = "height")
-	private String height;
-	@Column(name = "weight")
-	private int weight;
-	@Column(name = "bmi")
-	private String bmi;
-	@Column(name = "medical_conditions")
-	private String medicalConditions;
-	@Column(name = "phone")
-	private String phone;
-	@Column(name = "emergency_contact")
-	private String emergencyContact;
 }

@@ -2,23 +2,36 @@ package com.hospitalportal.base.auth;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "employee_details")
 public class EmployeeDetails {
 
-	public EmployeeDetails(int id, String firstName, String lastName, String password, String email, String phone) {
+
+
+
+	public EmployeeDetails(String employeedetailsid, String firstName, String lastName, String email, String phone,
+			Employee employee) {
 		super();
-		this.id = id;
+		this.employeeDetailsId = employeedetailsid;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.password = password;
 		this.email = email;
 		this.phone = phone;
+		this.employee = employee;
 	}
 
 	public EmployeeDetails() {
@@ -27,18 +40,15 @@ public class EmployeeDetails {
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "employee_id")
-	private int id;
+	@Column(name=("employeedetailsid"))
+	private String employeeDetailsId;
 
+	
 	@Column(name = "first_name")
 	private String firstName;
 
 	@Column(name = "last_name")
 	private String lastName;
-
-	@Column(name = "password")
-	private String password;
 
 	@Column(name = "email")
 	private String email;
@@ -46,12 +56,25 @@ public class EmployeeDetails {
 	@Column(name = "phone")
 	private String phone;
 
-	public int getId() {
-		return id;
+	@OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "employeeId")
+	private Employee employee;
+    
+    
+	public Employee getEmployee() {
+		return employee;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
+	public String getId() {
+		return employeeDetailsId;
+	}
+
+	public void setId(String employeedetailsid) {
+		this.employeeDetailsId = employeedetailsid;
 	}
 
 	public String getFirstName() {
@@ -70,13 +93,7 @@ public class EmployeeDetails {
 		this.lastName = lastName;
 	}
 
-	public String getPassword() {
-		return password;
-	}
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
 
 	public String getEmail() {
 		return email;
