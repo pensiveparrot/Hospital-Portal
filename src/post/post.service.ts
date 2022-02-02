@@ -26,7 +26,7 @@ httpOptions={headers:new HttpHeaders({
     return this.httpClient.get<Post[]>(this.rootURL+'/appointment').pipe(catchError(this.errorHandler))
   }
   
-  Create(appointment:any, id:number)
+  Create(appointment:Post, id:number)
   {
     appointment.id = id;
 
@@ -36,10 +36,15 @@ httpOptions={headers:new HttpHeaders({
   find(id:number):Observable<Post>{
     return this.httpClient.get<Post>(this.rootURL+'/appointment'+id).pipe(catchError(this.errorHandler))
   }
-  update(id:number,apptName:string, apptType:string,apptDate:Date,pID:number,summary:string,confirmed:string): Observable<Post>{
-    return this.httpClient.put<Post>(this.rootURL+'/appointment'+id,JSON.stringify(id,),
-    pipe.(catchError(this.errorHandler))
-      ))
+  update(id:number,apptName:string, apptType:string,apptDate:Date,pID:number,summary:string,confirmed:string, post:Post): Observable<Post>{
+    return   this.httpClient.put<Post>(this.rootURL + '/appointment/' + id, JSON.stringify(post), this.httpOptions)
+
+    .pipe(
+
+      catchError(this.errorHandler)
+
+    );
+    
   }
 
 errorHandler(error) {
