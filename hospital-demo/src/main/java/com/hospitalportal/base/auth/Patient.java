@@ -13,7 +13,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.hospitalportal.postapptsummary.PatientAppointment;
 
 @Entity
 @Table(name = "patient_login")
