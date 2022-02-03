@@ -14,9 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name = "employee_details")
 public class EmployeeDetails {
 
-
-
-
 	public EmployeeDetails(String employeedetailsid, String firstName, String lastName, String email, String phone,
 			Employee employee) {
 		super();
@@ -34,10 +31,9 @@ public class EmployeeDetails {
 	}
 
 	@Id
-	@Column(name=("employeedetailsid"))
+	@Column(name = ("employeedetailsid"))
 	private String employeeDetailsId;
 
-	
 	@Column(name = "first_name")
 	private String firstName;
 
@@ -49,12 +45,11 @@ public class EmployeeDetails {
 
 	@Column(name = "phone")
 	private String phone;
-	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "employeeId")
+	@JoinColumn(name = "employeeId")
 	private Employee employee;
-    
-    
+
 	public Employee getEmployee() {
 		return employee;
 	}
@@ -86,8 +81,6 @@ public class EmployeeDetails {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-
 
 	public String getEmail() {
 		return email;

@@ -10,7 +10,6 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-
 @Entity
 @Table(name = "patient_details")
 public class PatientDetails {
@@ -75,6 +74,7 @@ public class PatientDetails {
 	    @JoinColumn(name = "patientId")
 	   private Patient patient;
 
+	
 	public Patient getPatient() {
 		return patient;
 	}

@@ -12,14 +12,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.hospitalportal.postapptsummary.Appointments;
+import com.hospitalportal.postapptsummary.PatientAppointment;
 
 @Entity
 @Table(name = "patient_login")
 public class Patient {
-
 
 
 
@@ -37,6 +35,10 @@ public class Patient {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	@Override
+	public String toString() {
+		return "Patient [patientId=" + patientId + ", password=" + password + "]";
+	}
 
 	
 //	@OneToOne(cascade = CascadeType.ALL)
@@ -52,19 +54,7 @@ public class Patient {
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
     @ManyToOne(fetch = FetchType.LAZY)
     private Employee mPatient;
-
-    @JsonIgnore
-    @OneToMany(
-            mappedBy = "mAppointments",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-        )
-    private List<Appointments> appointmentsId= new ArrayList<>();
-    
-	@Override
-	public String toString() {
-		return "Patient [patientId=" + patientId + ", password=" + password + "]";
-	}
+	
 
 	public Employee getEmployee() {
 		return mPatient;
@@ -89,7 +79,6 @@ public class Patient {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
 	public Employee getmPatient() {
 		return mPatient;
 	}
@@ -97,17 +86,5 @@ public class Patient {
 	public void setmPatient(Employee mPatient) {
 		this.mPatient = mPatient;
 	}
-
-
-
-	public List<Appointments> getPatientAppointmentsId() {
-		return appointmentsId;
-	}
-
-
-
-	public void setPatientAppointmentsId(List<Appointments> patientAppointmentsId) {
-		this.appointmentsId = patientAppointmentsId;
-	}
-	
+    
 }
