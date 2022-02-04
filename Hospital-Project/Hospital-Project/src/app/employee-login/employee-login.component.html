@@ -1,0 +1,16 @@
+<div>
+    <form (ngSubmit)="employeelogin()">
+        <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Employee ID</label>
+        <input type="text" class="form-control" [(ngModel)]="employee.employeeId"id="employeeId" name="employeeId" placeholder="1234567">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Employee Password</label>
+            <input type="password" [(ngModel)]="employee.password" class="form-control" id="password" name="password" placeholder="password">
+            </div>
+   
+            <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+    
+    </div>
+    

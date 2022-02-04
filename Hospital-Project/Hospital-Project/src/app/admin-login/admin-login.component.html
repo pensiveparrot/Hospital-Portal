@@ -1,0 +1,14 @@
+<div>
+<form (ngSubmit)="adminlogin()">
+    <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Admin ID</label>
+    <input type="text" class="form-control" [(ngModel)]="admin.adminId"id="adminId" name="adminId" placeholder="1234567">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Admin Password</label>
+        <input type="password" class="form-control"[(ngModel)]="admin.password" id="password" name="password" placeholder="password">
+        </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+
+</div>

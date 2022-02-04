@@ -1,0 +1,44 @@
+
+
+<!-- Click show for employee login, click hide for admin login.
+<ng-if-else></ng-if-else>
+Click the button below for patient login
+<ng-if-simple></ng-if-simple> -->
+<h1>{{title}}</h1>
+<!-- <nav>
+    <ul>
+       <li><a routerLink="api/auth/patient/login">Patient Login</a><router-outlet></router-outlet></li>
+       <li><a routerLink="/employee/login" routerLinkActive="active">Employee Login</a></li>
+       <li><a routerLink="/admin/login" routerLinkActive="active">Admin Login</a></li>
+    </ul>
+  <nav>
+     -->
+<!-- <nav>
+  <a routerLink="/heroes">Heroes</a>
+</nav>
+<router-outlet></router-outlet>
+<app-messages></app-messages> -->
+<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+    <div class="container">
+      <a routerLink="/" class="navbar-brand" routerLinkActive="active" >Home</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <ng-container>
+            <li class="nav-item">
+              <!-- <a routerLink = "home" class="nav-link">
+              Home
+              </a> -->
+            </li>
+            <li class="nav-item">
+              <a routerLink = "api/auth/patient/login" class="nav-link">
+              Patient Login
+              </a>
+            </li>
+           </ng-container>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>

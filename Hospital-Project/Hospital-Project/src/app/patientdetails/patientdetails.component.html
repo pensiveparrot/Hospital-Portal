@@ -1,0 +1,32 @@
+<!--[routerLink]="['edit', business._id]"-->
+<!--  this.router.navigate(['/patientportal-details'], { queryParams: { patientportal: id } }); -->
+
+<h3> Patient Portal Summary Details </h3>
+<div>
+    <div>
+        <label> <b> Appointment Type: </b> </label> {{patientportal.appointmentType}}
+    </div>
+    <div>
+        <label> <b> Appointment Time: </b></label> {{patientportal.appointmentTime}}
+    </div>
+    <div>
+        <label> <b> Summary: </b></label> {{patientportal.summary}}
+    </div>
+</div>
+<router-outlet></router-outlet>
+<!-- </a> -->
+<!-- <div>
+    <form (ngSubmit)="patientlogin()">
+        <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Patient ID</label>
+        <input type="text" class="form-control" id="patientId" name="patientId" [(ngModel)]="patient.patientId" placeholder="1234567">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Patient Password</label>
+            <input type="password" class="form-control" [(ngModel)]="patient.password" id="password" name="password" placeholder="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+    
+    </div>
+<router-outlet></router-outlet> -->
