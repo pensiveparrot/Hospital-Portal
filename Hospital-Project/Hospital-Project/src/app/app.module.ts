@@ -9,7 +9,13 @@ import { PatientLoginComponent } from './patient-login/patient-login.component';
 import { NgIfElseComponent } from './ng-if-else/ng-if-else.component';
 import { NgIfSimpleComponent } from './ng-if-simple/ng-if-simple.component';
 import { FormsModule } from '@angular/forms';
-import {  HttpClientModule } from '@angular/common/http'
+import {  HttpClientModule } from '@angular/common/http';
+import { CreatePatientportalComponent } from './createpatient/createpatient.component';
+import { UpdatepatientComponent } from './updatepatient/updatepatient.component';
+import { DeletepatientComponent } from './deletepatient/deletepatient.component';
+import { ReadpatientComponent } from './readpatient/readpatient.component';
+import { PatientDetailsComponent } from './patientdetails/patientdetails.component';
+import { PatientlistComponent } from './patientlist/patientlist.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +23,14 @@ import {  HttpClientModule } from '@angular/common/http'
     EmployeeLoginComponent,
     PatientLoginComponent,
     NgIfElseComponent,
-    NgIfSimpleComponent
+    NgIfSimpleComponent,
+    CreatePatientportalComponent,
+    UpdatepatientComponent,
+    DeletepatientComponent,
+    ReadpatientComponent,
+    PatientDetailsComponent,
+    PatientDetailsComponent,
+    PatientlistComponent
   ],
   imports: [
     BrowserModule,

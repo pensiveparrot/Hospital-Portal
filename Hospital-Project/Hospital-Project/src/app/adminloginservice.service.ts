@@ -14,6 +14,7 @@ export class AdminloginserviceService {
 
   loginAdmin(admin:Admin): Observable<object>{
     console.log(admin);
+    
     return this.httpClient.post(`${this.baseURL}`,admin);
   }
 }

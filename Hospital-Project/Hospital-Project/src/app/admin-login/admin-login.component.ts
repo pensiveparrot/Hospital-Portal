@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Admin } from './admin';
 import { AdminloginserviceService } from '../adminloginservice.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin-login',
@@ -10,7 +11,7 @@ import { AdminloginserviceService } from '../adminloginservice.service';
 export class AdminLoginComponent implements OnInit {
 
   admin:Admin = new Admin();
-  constructor(private adminloginservice:AdminloginserviceService) { }
+  constructor(private adminloginservice:AdminloginserviceService,private route:Router) { }
 
   ngOnInit(): void {
   }

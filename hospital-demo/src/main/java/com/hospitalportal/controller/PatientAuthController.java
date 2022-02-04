@@ -1,4 +1,4 @@
-package com.hospitalportal.base.controller;
+package com.hospitalportal.controller;
 //Authentication authentication = authenticationManager
 
 //.authenticate(new UsernamePasswordAuthenticationToken(patientData.getPatientId(), patientData.getPassword()));
@@ -37,13 +37,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hospitalportal.base.auth.Patient;
-import com.hospitalportal.base.repository.PatientRepositoryImpl;
+import com.hospitalportal.exception.ResourceNotFoundException;
+import com.hospitalportal.model.Patient;
+import com.hospitalportal.model.PatientPortal;
+import com.hospitalportal.repo.PatientPortalRepo;
+import com.hospitalportal.repo.PatientRepositoryImpl;
 
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -54,6 +59,8 @@ public class PatientAuthController {
 	@Autowired
 	PatientRepositoryImpl patientRepo;
 
+	@Autowired
+	PatientPortalRepo patientPortalRepo;
 	
 	@PostMapping("/patient/login")
 	public ResponseEntity<Patient> loginPatient(@Valid @RequestBody Patient patientData) {
@@ -65,5 +72,14 @@ public class PatientAuthController {
 		return new ResponseEntity<Patient>(patient, HttpStatus.BAD_REQUEST);
 
 	}
+	@GetMapping("/{id}")
+	public ResponseEntity<PatientPortal> getpatientPortalwhenLogin(@PathVariable Long id){
+		PatientPortal patientportal = patientPortalRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException("Id not found"));
+		return ResponseEntity.ok(patientportal);
+	}
+//	@GetMapping("/patient/login")
+//	public void getPatientLoginPage() {
+//		
+//	}
 
 }

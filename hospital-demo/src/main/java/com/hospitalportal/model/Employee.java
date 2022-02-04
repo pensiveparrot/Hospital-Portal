@@ -1,4 +1,4 @@
-package com.hospitalportal.base.auth;
+package com.hospitalportal.model;
 
 import java.util.ArrayList;
 import java.util.List;

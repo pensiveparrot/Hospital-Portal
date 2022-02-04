@@ -1,7 +1,7 @@
-package com.hospitalportal.base.controller;
+package com.hospitalportal.controller;
 //Authentication authentication = authenticationManager
 
-//.authenticate(new UsernamePasswordAuthenticationToken(adminData.getAdminId(), adminData.getPassword()));
+//.authenticate(new UsernamePasswordAuthenticationToken(employeeData.getEmployeeId(), employeeData.getPassword()));
 ////
 
 //public ResponseEntity<Employee> loginEmployee(@RequestBody Employee employeeData){
@@ -13,23 +13,23 @@ package com.hospitalportal.base.controller;
 //return (ResponseEntity<Employee>)ResponseEntity.status(500);
 //SecurityContextHolder.getContext().setAuthentication(authentication);
 ////
-//Admin admin = (Admin) authentication.getPrincipal();
+//Employee employee = (Employee) authentication.getPrincipal();
 ////
-//ResponseCookie jwtCookie = jwtUtils.generateJwtCookie(admin);
+//ResponseCookie jwtCookie = jwtUtils.generateJwtCookie(employee);
 ////
-//List<String> roles = adminData.getAuthorities().stream()
+//List<String> roles = employeeData.getAuthorities().stream()
 //.map(item -> item.getAuthority())
 //.collect(Collectors.toList());
-////		if(admin!=null && adminData.getAdminId().equalsIgnoreCase(admin.getAdminId()) && encoder.matches(adminData.getPassword(), admin.getPassword())){
+////		if(employee!=null && employeeData.getEmployeeId().equalsIgnoreCase(employee.getEmployeeId()) && encoder.matches(employeeData.getPassword(), employee.getPassword())){
 //
 //}
 //else
-//return new ResponseEntity<Admin>(admin, HttpStatus.BAD_REQUEST);
-//		if(admin==null)
+//return new ResponseEntity<Employee>(employee, HttpStatus.BAD_REQUEST);
+//		if(employee==null)
 //
 //
 //else
-//return new ResponseEntity<Admin>(admin, HttpStatus.OK);
+//return new ResponseEntity<Employee>(employee, HttpStatus.OK);
 
 import javax.validation.Valid;
 
@@ -42,27 +42,26 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hospitalportal.base.auth.Admin;
-import com.hospitalportal.base.repository.AdminRepositoryImpl;
-
+import com.hospitalportal.model.Employee;
+import com.hospitalportal.repo.EmployeeRepositoryImpl;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/auth")
-public class AdminAuthController {
+public class EmployeeAuthController {
 
 	@Autowired
-	AdminRepositoryImpl adminRepo;
+	EmployeeRepositoryImpl employeeRepo;
 
 	
-	@PostMapping("/admin/login")
-	public ResponseEntity<Admin> loginAdmin(@Valid @RequestBody Admin adminData) {
-		System.out.println(adminData);
+	@PostMapping("/employee/login")
+	public ResponseEntity<Employee> loginEmployee(@Valid @RequestBody Employee employeeData) {
+		System.out.println(employeeData);
 
-		Admin admin = adminRepo.findByAdminId(adminData.getAdminId());
-		if (admin.getPassword().equals(adminData.getPassword()))
-			return new ResponseEntity<Admin>(admin, HttpStatus.OK);
-		return new ResponseEntity<Admin>(admin, HttpStatus.BAD_REQUEST);
+		Employee employee = employeeRepo.findByEmployeeId(employeeData.getEmployeeId());
+		if (employee.getPassword().equals(employeeData.getPassword()))
+			return new ResponseEntity<Employee>(employee, HttpStatus.OK);
+		return new ResponseEntity<Employee>(employee, HttpStatus.BAD_REQUEST);
 
 	}
 

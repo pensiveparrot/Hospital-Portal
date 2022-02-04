@@ -1,4 +1,4 @@
-package com.hospitalportal.base.auth;
+package com.hospitalportal.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
