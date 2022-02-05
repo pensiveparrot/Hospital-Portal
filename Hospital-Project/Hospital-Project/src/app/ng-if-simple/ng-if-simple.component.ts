@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
     <button (click)="show = !show">{{show ? 'show' : 'hide'}}</button>
     show = {{!show}}
     <br>
-    <div *ngIf="!show"><app-patient-login></app-patient-login></div>
+    <div *ngIf="!show"></div>
 `
 })
 export class NgIfSimpleComponent {

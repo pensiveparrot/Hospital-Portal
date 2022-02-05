@@ -51,7 +51,7 @@ import com.hospitalportal.repo.PatientPortalRepo;
 import com.hospitalportal.repo.PatientRepositoryImpl;
 
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RestController
 @RequestMapping("/api/auth")
 public class PatientAuthController {
@@ -72,11 +72,7 @@ public class PatientAuthController {
 		return new ResponseEntity<Patient>(patient, HttpStatus.BAD_REQUEST);
 
 	}
-	@GetMapping("/{id}")
-	public ResponseEntity<PatientPortal> getpatientPortalwhenLogin(@PathVariable Long id){
-		PatientPortal patientportal = patientPortalRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException("Id not found"));
-		return ResponseEntity.ok(patientportal);
-	}
+
 //	@GetMapping("/patient/login")
 //	public void getPatientLoginPage() {
 //		

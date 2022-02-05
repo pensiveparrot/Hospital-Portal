@@ -45,7 +45,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hospitalportal.model.Employee;
 import com.hospitalportal.repo.EmployeeRepositoryImpl;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RestController
 @RequestMapping("/api/auth")
 public class EmployeeAuthController {

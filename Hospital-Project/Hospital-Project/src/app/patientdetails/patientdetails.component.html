@@ -1,16 +1,16 @@
 <!--[routerLink]="['edit', business._id]"-->
 <!--  this.router.navigate(['/patientportal-details'], { queryParams: { patientportal: id } }); -->
-
+<!-- [(ngModel)]="patient.password" -->
 <h3> Patient Portal Summary Details </h3>
 <div>
     <div>
-        <label> <b> Appointment Type: </b> </label> {{patientportal.appointmentType}}
+        <label> <b> Appointment Type: </b> </label> <div>{{patientportal.appointmentType}}</div>
     </div>
     <div>
-        <label> <b> Appointment Time: </b></label> {{patientportal.appointmentTime}}
+        <label> <b> Appointment Time: </b></label> <div>{{patientportal.appointmentTime}}</div>
     </div>
     <div>
-        <label> <b> Summary: </b></label> {{patientportal.summary}}
+        <label> <b> Summary: </b></label> <div>{{patientportal.summary}}</div>
     </div>
 </div>
 <router-outlet></router-outlet>

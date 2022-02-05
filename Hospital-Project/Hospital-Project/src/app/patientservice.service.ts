@@ -8,7 +8,7 @@ import { PatientPortal } from './patientportal';
 })
 export class PatientService {
 
-  private baseURL = "http://localhost:8081/api/auth/patient/login";
+  private baseURL = "http://localhost:8081/api/patient/patientportal";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -21,7 +21,7 @@ export class PatientService {
   }
 
   getPatientPortalById(id: number): Observable<PatientPortal>{
-    return this.httpClient.get<PatientPortal>(`${this.baseURL}/{id}`);
+    return this.httpClient.get<PatientPortal>(`${this.baseURL}/${id}`);
   }
 
   updatePatientPortal(id: number, patientportal: PatientPortal): Observable<Object>{
@@ -29,6 +29,6 @@ export class PatientService {
   }
 
   deletePatientPortal(id: number): Observable<Object>{
-    return this.httpClient.delete(`${this.baseURL}/{id}`);
+    return this.httpClient.delete(`${this.baseURL}/${id}`);
   }
 }

@@ -4,6 +4,7 @@ import java.sql.Date;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -22,36 +23,58 @@ public class PatientPortal {
 
 	@Column(name = "appointmenttype")
 	private String appointmentType;
-
+	@JsonFormat(pattern="dd MMM yyyy")
 	@Column(name = "appointmenttime")
 	private Date appointmentTime;
 
 	@Column(name = "summary")
 	private String summary;
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "patientId")
-	private Patient patientPortal;
+	//@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+//	@OneToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "patientId")
+//	private Patient patientPortal;
+//
+//	public PatientPortal(String first_name, String last_name, String appointmentType, Date appointmentTime,
+//			String summary) {
+//		super();
+//		this.first_name = first_name;
+//		this.last_name = last_name;
+//		this.appointmentType = appointmentType;
+//		this.appointmentTime = appointmentTime;
+//		this.summary = summary;
+//	}
+	
 
-	public PatientPortal(String first_name, String last_name, String appointmentType, Date appointmentTime,
+	public PatientPortal() {
+		super();
+	}
+
+	public PatientPortal(Long id, String first_name, String last_name, String appointmentType, Date appointmentTime,
 			String summary) {
 		super();
+		this.id = id;
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.appointmentType = appointmentType;
 		this.appointmentTime = appointmentTime;
 		this.summary = summary;
 	}
+	
 
-	public PatientPortal() {
-		super();
+	@Override
+	public String toString() {
+		return "PatientPortal [id=" + id + ", first_name=" + first_name + ", last_name=" + last_name
+				+ ", appointmentType=" + appointmentType + ", appointmentTime=" + appointmentTime + ", summary="
+				+ summary + "]";
 	}
 
-	public Long getId() {
+
+
+	public Long getPatientPortalId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setPatientPortalId(Long id) {
 		this.id = id;
 	}
 
@@ -95,12 +118,12 @@ public class PatientPortal {
 		this.summary = summary;
 	}
 
-	public Patient getPatientPortal() {
-		return patientPortal;
-	}
-
-	public void setPatientPortal(Patient patientPortal) {
-		this.patientPortal = patientPortal;
-	}
+//	public Patient getPatientPortal() {
+//		return patientPortal;
+//	}
+//
+//	public void setPatientPortal(Patient patientPortal) {
+//		this.patientPortal = patientPortal;
+//	}
 
 }

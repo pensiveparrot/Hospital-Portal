@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { PatientDetailsComponent } from '../patientdetails/patientdetails.component';
 import { PatientService } from '../patientservice.service';
 import { PatientPortal } from '../patientportal';
+
 @Component({
   selector: 'app-patient-login',
   templateUrl: './patient-login.component.html',
@@ -19,12 +20,18 @@ export class PatientLoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-patientlogin(){
+patientlogin(id:bigint){
   console.log(this.patient);
+ 
 
-  this.patientloginservice.loginPatient(this.patient).subscribe(data=>{this.route.navigate(["patientportal-details",this.patientportalservice.getPatientPortalById(this.patientportal.id)])},error=>{alert("error with id or pass, try again")});
+  this.patientloginservice.loginPatient(this.patient).subscribe(data=>(this.route.navigate(['api/patient/patientportal/1'])),error=>console.log('error'));
+  // .subscribe(data=>{alert("logged in successfully")},error=>{alert("error with id or pass, try again")});
+  // this.patientloginservice.loginPatient(this.patient).subscribe(this.patientportalservice.getPatientPortalById(this.patientportal.id)
+  // data:(this.patientportalservice.getPatientPortalById(this.patientportal.id)));
 
 }
 }
+// ["patientportal-details/:id",this.patientportalservice.getPatientPortalById(this.patientportal.id)]
+// data=>{},error=>{alert("error with id or pass, try again")}
 // this.route.navigate(['patientportal-details/:id']
 // <a routerLink="['patientportal-details/:id']" routerLinkActive="active">

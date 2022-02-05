@@ -1,5 +1,5 @@
 <div>
-    <form (ngSubmit)="patientlogin()">
+    <form (ngSubmit)="patientlogin(patientportal.id)">
         <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Patient ID</label>
         <input type="text" class="form-control" id="patientId" name="patientId" [(ngModel)]="patient.patientId" placeholder="1234567">

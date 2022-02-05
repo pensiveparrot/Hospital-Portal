@@ -46,7 +46,7 @@ import com.hospitalportal.model.Admin;
 import com.hospitalportal.repo.AdminRepositoryImpl;
 
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RestController
 @RequestMapping("/api/auth")
 public class AdminAuthController {
