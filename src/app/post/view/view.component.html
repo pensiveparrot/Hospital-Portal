@@ -22,7 +22,7 @@
 
         <strong>Title:</strong>
 
-        <p>{{ post.apptTitle }}</p>
+        <p>{{ post.apptName }}</p>
 
     </div>
 
@@ -30,11 +30,28 @@
 
     <div>
 
-        <strong>Body:</strong>
+        <strong>Date:</strong>
 
-        <p>{{ post.body }}</p>
+        <p>{{ post.apptDate }}</p>
 
     </div>
+    <div>
+        <strong>Appointment Type:</strong>
+        <p>{{post.apptType}}</p>
+    </div>
+    <div>
+        <strong>Assciated Patient:</strong>
+        <p>{{post.paitentID}}</p>
+    </div>
+    <div>
+        <strong>Confirmed:</strong>
+        <p>{{post.confirmed}}</p>
+    </div>
+    <div>
+        <strong>Appointment Summary:</strong>
+        <p>{{post.summary}}</p>
+    </div>
+
 
    
 
