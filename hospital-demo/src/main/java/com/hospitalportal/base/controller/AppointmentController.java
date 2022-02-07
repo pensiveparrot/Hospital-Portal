@@ -48,7 +48,7 @@ public ResponseEntity<UpcomingAppts> updateAdmin(@PathVariable(value = "id") int
       admin.setConfirmed(admin.getConfirmed());
       admin.setSummary(admin.getSummary());
       
-       final UpcomingAppts updatedAdmin = AppointmentRepository.save(admin);
+       final UpcomingAppts updatedAdmin = apptRepo.save(admin);
        return ResponseEntity.ok(updatedAdmin);
    }
 
