@@ -37,7 +37,7 @@ export class EditComponent implements OnInit {
 
     
 
-    this.form = new FormGroup({
+    this.formGroup = new FormGroup({
 
       id:new FormControl(''),
       apptTitle:new FormControl('',[Validators.required]),
@@ -55,7 +55,7 @@ export class EditComponent implements OnInit {
 
   get f(){
 
-    return this.form.controls;
+    return this.formGroup.controls;
 
   }
 
@@ -63,7 +63,7 @@ export class EditComponent implements OnInit {
 
   submit(){
 
-    console.log(this.form.value);
+    console.log(this.formGroup.value);
 
     this.postService.update(this.id, this.apptName,this.apptDate.toString(),this.apptDate,this.paitentID,this.summary,this.confirmed,this.post).subscribe(res => {
 

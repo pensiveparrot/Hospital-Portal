@@ -11,7 +11,9 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 export class CreateComponent implements OnInit {
   form: FormGroup;
 
-  constructor(public postService:PostService,private router:Router) { }
+  constructor(public postService:PostService,private router:Router) {
+    //this.form= new FormGroup;
+   }
 
   ngOnInit(): void {
     this.form=new FormGroup({

@@ -8,7 +8,7 @@
 
         
 
-    <form [formGroup]="form" (ngSubmit)="submit()">
+    <form [formGroup]="formGroup" (ngSubmit)="submit()">
 
   
 
@@ -26,7 +26,7 @@
 
                 class="form-control">
 
-            <div *ngIf="f.title.touched && f.title.invalid" class="alert alert-danger">
+            <div *ngIf="f.apptName.touched && f.title.invalid" class="alert alert-danger">
 
 
             </div>
