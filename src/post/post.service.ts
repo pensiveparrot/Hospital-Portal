@@ -26,9 +26,9 @@ httpOptions={headers:new HttpHeaders({
     return this.httpClient.get<Post[]>(this.rootURL+'/appointment').pipe(catchError(this.errorHandler))
   }
   
-  Create(appointment:Post, id:number)
+  Create(appointment:Post)
   {
-    appointment.id = id;
+    //appointment.id =;
 
     return this.httpClient.post(this.rootURL + '/appointment', appointment);
 
