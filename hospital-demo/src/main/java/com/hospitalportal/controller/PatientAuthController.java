@@ -72,6 +72,16 @@ public class PatientAuthController {
 		return new ResponseEntity<Patient>(patient, HttpStatus.BAD_REQUEST);
 
 	}
+	
+	@PostMapping("/patient/register/{id}{password}")
+	public ResponseEntity<Patient> registerPatient(@PathVariable String id, @PathVariable String password, @Valid @RequestBody Patient patientData){
+		if(patientData.getPatientId()==null || patientData.getPassword()==null)
+			return new ResponseEntity<Patient>(patientData, HttpStatus.BAD_REQUEST);
+		patientData.setPatientId(patientData.getPatientId());
+		patientData.setPassword(patientData.getPassword());
+		patientRepo.save(patientData);
+		return new ResponseEntity<Patient>(patientData,HttpStatus.OK);
+	}
 
 //	@GetMapping("/patient/login")
 //	public void getPatientLoginPage() {

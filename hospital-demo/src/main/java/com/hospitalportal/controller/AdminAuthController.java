@@ -65,5 +65,7 @@ public class AdminAuthController {
 		return new ResponseEntity<Admin>(admin, HttpStatus.BAD_REQUEST);
 
 	}
+	
+//	public Admin registerAdmn
 
 }

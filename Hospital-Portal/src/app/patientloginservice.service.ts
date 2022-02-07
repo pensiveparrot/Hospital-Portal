@@ -8,12 +8,18 @@ import { Patient } from './patient-login/patient';
 })
 export class PatientloginserviceService {
   private baseURL="http://localhost:8081/api/auth/patient/login";
+  private baseRegisterURL="http://localhost:8081/api/auth/patient/register"; // private baseURL="http://localhost:8081/api/auth/patient";
 
   constructor(private httpClient: HttpClient) { }
 
-
+  // getPatientPortalById(id: number): Observable<PatientPortal>{
+  //   return this.httpClient.get<PatientPortal>(`${this.baseURL}/${id}`);
+  // }
   loginPatient(patient:Patient): Observable<object>{
     console.log(patient);
     return this.httpClient.post(`${this.baseURL}`,patient);
+  }
+  registerpatient(id:string,password:string,patient:Patient): Observable<object>{
+    return this.httpClient.post(`${this.baseRegisterURL}/${id}${password}`,patient);
   }
 }

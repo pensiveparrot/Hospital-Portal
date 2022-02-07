@@ -1,0 +1,15 @@
+<div>
+    <form (ngSubmit)="patientregister(patient.patientId)">
+        <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Patient ID</label>
+        <input type="text" class="form-control" id="patientId" name="patientId" [(ngModel)]="patient.patientId" placeholder="1234567">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Patient Password</label>
+            <input type="password" class="form-control" [(ngModel)]="patient.password" id="password" name="password" placeholder="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+    
+    </div>
+<router-outlet></router-outlet>

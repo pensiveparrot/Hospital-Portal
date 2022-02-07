@@ -16,6 +16,7 @@ import { DeletepatientComponent } from './deletepatient/deletepatient.component'
 import { ReadpatientComponent } from './readpatient/readpatient.component';
 import { PatientDetailsComponent } from './patientdetails/patientdetails.component';
 import { PatientlistComponent } from './patientlist/patientlist.component';
+import { PatientregisterComponent } from './patientregister/patientregister.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { PatientlistComponent } from './patientlist/patientlist.component';
     PatientDetailsComponent,
     PatientDetailsComponent,
     PatientlistComponent,
+    PatientregisterComponent,
    
   ],
   imports: [
