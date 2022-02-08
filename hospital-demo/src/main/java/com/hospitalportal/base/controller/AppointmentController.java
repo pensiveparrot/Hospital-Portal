@@ -55,7 +55,8 @@ public ResponseEntity<UpcomingAppts> updateAdmin(@PathVariable(value = "id") int
    @DeleteMapping("/appointment/{id}")
    public Map<String, Boolean> deleteEmployee(@PathVariable(value = "id") int employeeId)
         throws ResourceNotFoundException {
-       UpcomingAppts admin = apptRepo.FindById(employeeId);
+       UpcomingAppts admin = apptRepo.findById(employeeId)
+      .orElseThrow(() -> new ResourceNotFoundException());
 apptRepo.delete(admin);
        Map<String, Boolean> response = new HashMap<>();
        response.put("deleted", Boolean.TRUE);
