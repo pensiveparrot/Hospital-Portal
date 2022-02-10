@@ -5,6 +5,7 @@ import java.sql.Date;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -29,6 +30,12 @@ public class PatientPortal {
 
 	@Column(name = "summary")
 	private String summary;
+	
+//	   @JsonIgnore
+	   @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+	   @OneToOne(fetch = FetchType.LAZY)
+	    @JoinColumn(name = "patientId")
+	   private Patient patientAccount;
 	//@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 //	@OneToOne(fetch = FetchType.LAZY)
 //	@JoinColumn(name = "patientId")

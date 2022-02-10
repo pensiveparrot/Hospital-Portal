@@ -19,7 +19,7 @@ export class PatientDetailsComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
 
     this.patientportal = new PatientPortal();
-    this.patientportalservice.getPatientPortalById(1).subscribe(data => {
+    this.patientportalservice.getPatientPortalById(this.id).subscribe(data => {
       this.patientportal = data;
     });
   }

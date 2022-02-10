@@ -25,6 +25,7 @@ patientlogin(id:bigint){
  
 
   this.patientloginservice.loginPatient(this.patient).subscribe(data=>(this.route.navigate(['api/patient/patientportal/:id'])),error=>console.log('error'));
+  //this.patientloginservice.loginPatient(this.patient).subscribe(data=>(this.route.navigate(['api/patient/patientportal/1'])),error=>console.log('error'));
   // .subscribe(data=>{alert("logged in successfully")},error=>{alert("error with id or pass, try again")});
   // this.patientloginservice.loginPatient(this.patient).subscribe(this.patientportalservice.getPatientPortalById(this.patientportal.id)
   // data:(this.patientportalservice.getPatientPortalById(this.patientportal.id)));

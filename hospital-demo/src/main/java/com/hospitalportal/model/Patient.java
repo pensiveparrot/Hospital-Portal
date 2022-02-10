@@ -1,12 +1,15 @@
 package com.hospitalportal.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -51,8 +54,20 @@ public class Patient {
     @ManyToOne(fetch = FetchType.LAZY)
     private Employee mPatient;
 
-    
-    
+//	 @OneToOne(mappedBy = "patientInfo")
+//	 private Patient patientDetails;
+	 @JsonIgnore
+	 @OneToOne(mappedBy="patientAccount")
+	 private PatientPortal patientPortal;
+	
+	public PatientPortal getPatientPortal() {
+		return patientPortal;
+	}
+
+	public void setPatientPortal(PatientPortal patientPortal) {
+		this.patientPortal = patientPortal;
+	}
+
 	@Override
 	public String toString() {
 		return "Patient [patientId=" + patientId + ", password=" + password + "]";
@@ -61,6 +76,8 @@ public class Patient {
 	public Employee getEmployee() {
 		return mPatient;
 	}
+
+
 
 	public void setEmployee(Employee mPatient) {
 		this.mPatient = mPatient;

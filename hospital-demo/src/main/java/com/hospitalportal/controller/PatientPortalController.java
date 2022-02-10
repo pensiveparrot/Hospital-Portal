@@ -21,9 +21,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hospitalportal.repo.PatientPortalRepo;
+import com.hospitalportal.repo.PatientPortalRepoImpl;
+//import com.hospitalportal.repo.PatientPortalRepoImpl;
 import com.hospitalportal.exception.ResourceNotFoundException;
-import com.hospitalportal.model.Patient;
+//import com.hospitalportal.model.Patient;
 import com.hospitalportal.model.PatientPortal;
 
 
@@ -32,7 +33,7 @@ import com.hospitalportal.model.PatientPortal;
 @RequestMapping(path = "/api/patient")
 public class PatientPortalController {
 	@Autowired
-	private PatientPortalRepo patientPortalRepo;
+	private PatientPortalRepoImpl patientPortalRepo;
 	
 //	@GetMapping("/patientportal")
 //	public List<PatientPortal> getpatientPortal(){

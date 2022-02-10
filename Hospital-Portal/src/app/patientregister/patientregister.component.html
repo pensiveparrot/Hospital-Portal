@@ -8,6 +8,18 @@
             <label for="exampleFormControlInput1" class="form-label">Patient Password</label>
             <input type="password" class="form-control" [(ngModel)]="patient.password" id="password" name="password" placeholder="password">
             </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Appointment Time</label>
+                <input type="date" class="form-control" [(ngModel)]="patientportal.appointmentTime" id="appttime" name="appttime" placeholder="2022-11-13">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Appointment Type</label>
+                    <input type="text" class="form-control" [(ngModel)]="patientportal.appointmentType" id="appttype" name="appttype" placeholder="2022-11-13">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Appointment Summary</label>
+                        <input type="text" class="form-control" [(ngModel)]="patientportal.summary" id="apptsummary" name="apptsummary" placeholder="2022-11-13">
+                        </div>
             <button type="submit" class="btn btn-primary">Register</button>
     </form>
     

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Patient } from './patient-login/patient';
+import { PatientPortal } from './patientportal';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class PatientloginserviceService {
     console.log(patient);
     return this.httpClient.post(`${this.baseURL}`,patient);
   }
-  registerpatient(id:string,password:string,patient:Patient): Observable<object>{
-    return this.httpClient.post(`${this.baseRegisterURL}/${id}${password}`,patient);
+  registerpatient(id:string,password:string,patientappttime:Date,patientappttype:String,patientapptsummary:String,patient:Patient): Observable<object>{
+    return this.httpClient.post(`${this.baseRegisterURL}/${id}${password}${patientappttime}${patientappttype}${patientapptsummary}`,patient);
   }
 }

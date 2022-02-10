@@ -1,6 +1,8 @@
 package com.hospitalportal.controller;
 //Authentication authentication = authenticationManager
 
+import java.util.Date;
+
 //.authenticate(new UsernamePasswordAuthenticationToken(patientData.getPatientId(), patientData.getPassword()));
 ////
 
@@ -47,7 +49,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hospitalportal.exception.ResourceNotFoundException;
 import com.hospitalportal.model.Patient;
 import com.hospitalportal.model.PatientPortal;
-import com.hospitalportal.repo.PatientPortalRepo;
+//import com.hospitalportal.repo.PatientPortalRepo;
+import com.hospitalportal.repo.PatientPortalRepoImpl;
 import com.hospitalportal.repo.PatientRepositoryImpl;
 
 
@@ -60,7 +63,7 @@ public class PatientAuthController {
 	PatientRepositoryImpl patientRepo;
 
 	@Autowired
-	PatientPortalRepo patientPortalRepo;
+	PatientPortalRepoImpl patientPortalRepo;
 	
 	@PostMapping("/patient/login")
 	public ResponseEntity<Patient> loginPatient(@Valid @RequestBody Patient patientData) {
@@ -73,10 +76,11 @@ public class PatientAuthController {
 
 	}
 	
-	@PostMapping("/patient/register/{id}{password}")
-	public ResponseEntity<Patient> registerPatient(@PathVariable String id, @PathVariable String password, @Valid @RequestBody Patient patientData){
-		if(patientData.getPatientId()==null || patientData.getPassword()==null)
+	@PostMapping("/patient/register/{id}{password}{patientappttime}{patientappttype}{patientapptsummary}")
+	public ResponseEntity<Patient> registerPatient(@PathVariable String id, @PathVariable String password,Date patientappttime,String patientappttype,String patientapptsummary, @Valid @RequestBody Patient patientData){
+		if(patientData.getPatientId()==null || patientData.getPassword()==null || patientappttime ==null || patientappttype==null || patientapptsummary==null)
 			return new ResponseEntity<Patient>(patientData, HttpStatus.BAD_REQUEST);
+		patientData.setPatientPortal(patientData.getPatientPortal());
 		patientData.setPatientId(patientData.getPatientId());
 		patientData.setPassword(patientData.getPassword());
 		patientRepo.save(patientData);
